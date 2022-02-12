@@ -28,12 +28,7 @@ const presetDates: PresetDate[] = [
 		activeIcon: '/icons/last-monday-active.svg',
 		inactiveIcon: '/icons/last-monday-inactive.svg',
 	},
-	{
-		label: 'Custom',
-		value: new Date(),
-		activeIcon: '/icons/custom-active.svg',
-		inactiveIcon: '/icons/custom-inactive.svg',
-	},
+
 ];
 
 export default presetDates;

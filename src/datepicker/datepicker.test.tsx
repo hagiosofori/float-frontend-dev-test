@@ -4,6 +4,8 @@
 import { render, screen } from '@testing-library/react';
 import presetDates from './constants';
 import App from '../App';
+import { determineSelectedDateLabel } from './index';
+import { addDays } from 'date-fns';
 
 describe('App - Datepicker', () => {
 	function setupApp() {
@@ -38,5 +40,17 @@ describe('App - Datepicker', () => {
 			const inputField = screen.getByRole('textbox');
 			expect(inputField).toHaveDisplayValue(each.label);
 		});
+
+		it(`should select the ${each.label} preset date when the correct date is selected`, () => {
+			setupApp();
+			screen.getByText(each.value.getDate()).click();
+		});
+
+		it(`should return the correct label when given the correct date`, () => {
+			expect(determineSelectedDateLabel(each.value)).toBe(each.label);
+		});
+	});
+	it('should return "Custom" when no preset label is found', () => {
+		expect(determineSelectedDateLabel(addDays(new Date(), 1))).toBe('Custom');
 	});
 });

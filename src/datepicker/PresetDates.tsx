@@ -1,4 +1,3 @@
-import presetDates from './constants';
 import PresetDateOption from './PresetDateOption';
 import { PresetDatesProps } from './@types';
 
@@ -10,13 +9,22 @@ const PresetDates = ({ date, setDate, options }: PresetDatesProps) => (
 				activeIcon={activeIcon}
 				inactiveIcon={inactiveIcon}
 				onClick={() => {
-					setDate({value, label});
+					setDate({ value, label });
 				}}
 				value={value}
-				isActive={value.getTime() === date.value.getTime()}
-                key={label}
+				isActive={label === date.label}
+				key={label}
 			/>
 		))}
+		<PresetDateOption
+			label="Custom"
+			activeIcon="/icons/custom-active.svg"
+			inactiveIcon="/icons/custom-inactive.svg"
+			onClick={() => {}}
+			value={new Date()}
+			isActive={date.label === 'Custom'}
+			key="Custom"
+		/>
 	</>
 );
 

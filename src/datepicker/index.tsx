@@ -46,6 +46,7 @@ export default function Datepicker({ date, setDate, show, setShow }: DatepickerP
 						border: 'none',
 						outline: 'none',
 						color: '#706F6C',
+						cursor: 'pointer',
 					}}
 					type="text"
 					onClick={(e) => {
@@ -69,7 +70,13 @@ export default function Datepicker({ date, setDate, show, setShow }: DatepickerP
 					>
 						<PresetDates options={presetDates} date={date} setDate={setDate} />
 					</div>
-					<Calendar value={date.value} />
+					<Calendar
+						value={date.value}
+						onChange={(value: Date) => {
+							const label = determineSelectedDateLabel(value);
+							setDate({ label, value });
+						}}
+					/>
 				</CalendarContainer>
 			</ConditionalRender>
 		</>
@@ -82,3 +89,14 @@ const CalendarContainer = styled.div<{ show: boolean }>`
 	display: ${(props) => (props.show ? 'flex' : 'none')};
 	border-radius: 12px;
 `;
+
+export function determineSelectedDateLabel(date: Date) {
+	const foundPresetDate = presetDates.find((each) => {
+		return (
+			each.value.getDate() === date.getDate() &&
+			each.value.getMonth() === date.getMonth() &&
+			each.value.getFullYear() === date.getFullYear()
+		);
+	});
+	return foundPresetDate?.label || 'Custom';
+}
