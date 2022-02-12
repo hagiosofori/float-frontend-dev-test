@@ -1,12 +1,11 @@
-import React from 'react';
-import './App.css';
 import Datepicker from './datepicker';
+import { DatepickerProps } from './datepicker/@types';
 import useCalendar from './hooks/useCalendar';
 import Sidebar from './Sidebar';
 import styled from 'styled-components';
 
 function App() {
-	const { show: showDatePicker, setShow, date, setDate } = useCalendar(); // todo: specify the types. either as props to the datepicker component, or as the return value of useCalendar
+	const { show: showDatePicker, setShow, date, setDate }: DatepickerProps = useCalendar();
 
 	return (
 		<Page>
