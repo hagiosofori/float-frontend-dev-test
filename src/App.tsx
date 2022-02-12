@@ -1,26 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Datepicker from './datepicker';
+import useCalendar from './hooks/useCalendar';
+import Sidebar from './Sidebar';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const { show: showDatePicker, setShow, date, setDate } = useCalendar(); // todo: specify the types. either as props to the datepicker component, or as the return value of useCalendar
+
+	return (
+		<div className="App" style={{ display: 'flex' }}>
+			<Sidebar />
+			<div style={{ padding: '25px' }}>
+				<header style={{ marginBottom: '55px' }}>
+					<h3 style={{ textAlign: 'left' }}>Overview</h3>
+				</header>
+
+				<main>
+					<Datepicker
+						show={showDatePicker}
+						setShow={setShow}
+						date={date}
+						setDate={setDate}
+					/>
+				</main>
+			</div>
+		</div>
+	);
 }
 
 export default App;
