@@ -3,17 +3,18 @@ import './App.css';
 import Datepicker from './datepicker';
 import useCalendar from './hooks/useCalendar';
 import Sidebar from './Sidebar';
+import styled from 'styled-components';
 
 function App() {
 	const { show: showDatePicker, setShow, date, setDate } = useCalendar(); // todo: specify the types. either as props to the datepicker component, or as the return value of useCalendar
 
 	return (
-		<div className="App" style={{ display: 'flex' }}>
+		<Page>
 			<Sidebar />
-			<div style={{ padding: '25px' }}>
-				<header style={{ marginBottom: '55px' }}>
-					<h3 style={{ textAlign: 'left' }}>Overview</h3>
-				</header>
+			<Main>
+				<Header>
+					<h3>Overview</h3>
+				</Header>
 
 				<main>
 					<Datepicker
@@ -23,9 +24,25 @@ function App() {
 						setDate={setDate}
 					/>
 				</main>
-			</div>
-		</div>
+			</Main>
+		</Page>
 	);
 }
 
 export default App;
+
+const Page = styled.div`
+	display: flex;
+`;
+
+const Main = styled.div`
+	padding: 25px;
+`;
+
+const Header = styled.header`
+	margin-bottom: 55px;
+
+	h3 {
+		text-align: left;
+	}
+`;

@@ -1,35 +1,51 @@
 import { PresetDate } from './@types';
+import styled from 'styled-components';
+import colors from '../colors';
 const PresetDateOption = ({
 	activeIcon,
 	inactiveIcon,
 	label,
 	isActive,
 	onClick,
-}: PresetDate & { isActive: boolean; onClick: () => void }) => {
+	clickable = true,
+}: PresetDate & { isActive: boolean; onClick: () => void; clickable?: boolean }) => {
 	return (
-		<button
-			style={{
-				display: 'flex',
-				padding: '10px 8px',
-				background: isActive ? '#F1F1EF' : 'transparent',
-				cursor: 'pointer',
-				color: isActive ? '#0E9888' : '#90908C',
-				fontWeight: isActive ? 600 : 400,
-				border: 'none',
-			}}
+		<PresetDateOptionContainer
+			clickable={clickable}
 			onClick={onClick}
-            data-testid={label}
+			data-testid={label}
+			isActive={isActive}
 		>
 			<img
 				src={isActive ? activeIcon : inactiveIcon}
 				alt={`${label} date`}
-				style={{ marginRight: '13px' }}
 				width="20px"
 				height="20px"
 			/>
 			{label}
-		</button>
+		</PresetDateOptionContainer>
 	);
 };
 
 export default PresetDateOption;
+
+const PresetDateOptionContainer = styled.button<{ isActive: boolean; clickable: boolean }>`
+	display: flex;
+	padding: 10px 8px;
+	background: ${(props) => (props.isActive ? colors.presetDateActiveBackground : 'transparent')};
+	cursor: pointer;
+	color: ${(props) => (props.isActive ? colors.teal : colors.presetDateActiveText)};
+	font-weight: ${(props) => (props.isActive ? 600 : 400)};
+	border: none;
+	min-width: 141px;
+	border-radius: 6px;
+	align-items: center;
+
+	&:hover {
+		background: ${(props) => (props.clickable ? colors.presetDateActiveBackground : '')};
+	}
+
+	img {
+		margin-right: 13px;
+	}
+`;
