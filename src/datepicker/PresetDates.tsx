@@ -16,14 +16,16 @@ const PresetDates = ({ date, setDate, options }: PresetDatesProps) => (
 				key={label}
 			/>
 		))}
+
 		<PresetDateOption
 			label="Custom"
 			activeIcon="/icons/custom-active.svg"
 			inactiveIcon="/icons/custom-inactive.svg"
-			onClick={() => {}}
+			onClick={() => null}
 			value={new Date()}
 			isActive={date.label === 'Custom'}
 			key="Custom"
+			clickable={false}
 		/>
 	</>
 );
