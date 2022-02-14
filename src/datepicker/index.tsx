@@ -155,12 +155,14 @@ const CalendarContainer = styled.div<{ show: boolean }>`
 `;
 
 export function determineSelectedDateLabel(date: Date) {
-	const foundPresetDate = presetDates.find((each) => {
+	const foundPresetDateKey = presetDates.keys.find((each) => {
+		const value = presetDates[each].value;
 		return (
-			each.value.getDate() === date.getDate() &&
-			each.value.getMonth() === date.getMonth() &&
-			each.value.getFullYear() === date.getFullYear()
+			value.getDate() === date.getDate() &&
+			value.getMonth() === date.getMonth() &&
+			value.getFullYear() === date.getFullYear()
 		);
 	});
-	return foundPresetDate?.label || 'Custom';
+
+	return foundPresetDateKey ? presetDates[foundPresetDateKey]?.label : 'Custom';
 }
