@@ -1,9 +1,15 @@
 Float frontend developer test
 written by Seyram Alvin Ofori
 
-insert netlify deployment url here, along with the deployment status
+### site
+site deployed to https://seyram-alvin-ofori-float-frontend-dev-test.netlify.app
+[![Netlify Status](https://api.netlify.com/api/v1/badges/692e2bd4-f1cc-430e-a773-88ef311b50ad/deploy-status)](https://app.netlify.com/sites/float-frontend-dev-test-seyram-alvin-ofori/deploys)
 
-insert url to the storybook deployment here, along with deployment status
+
+### storybook
+storybook deployed to https://storybook-seyram-alvin-ofori-float-frontend-dev-test.netlify.app
+[![Netlify Status](https://api.netlify.com/api/v1/badges/18966d41-1865-4ffd-87c1-5df973b42a0f/deploy-status)](https://app.netlify.com/sites/storybook-seyram-alvin-ofori-float-frontend-dev-test/deploys)
+
 
 ## packages used
 ### styled components:
