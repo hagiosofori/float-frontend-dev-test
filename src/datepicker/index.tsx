@@ -28,6 +28,7 @@ export default function Datepicker({ date, setDate, show, setShow }: DatepickerP
 					}}
 					value={date.label}
 					onChange={() => null}
+					aria-label="Date"
 				/>
 				<img src="/plus-icon.svg" alt="plus" width="10px" height="10px" />
 			</InputContainer>
