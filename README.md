@@ -8,6 +8,11 @@ site deployed to https://seyram-alvin-ofori-float-frontend-dev-test.netlify.app
 storybook deployed to https://storybook-seyram-alvin-ofori-float-frontend-dev-test.netlify.app
 
 
+## to run the app in dev mode
+`yarn start` or `npm start`
+
+## to run tests
+`yarn test` or `npm test`
 
 ## packages used
 ### styled components:
