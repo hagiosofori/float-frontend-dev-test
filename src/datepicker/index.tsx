@@ -41,7 +41,7 @@ export default function Datepicker({ date, setDate, show, setShow }: DatepickerP
 						}}
 						tileContent={(props: CalendarTileProperties) => {
 							const value = format(props.date, 'd');
-                            const testId = format(props.date, 'd MMMM yyyy')
+							const testId = format(props.date, 'd MMMM yyyy');
 							if (props.view === 'month')
 								return <span data-testid={testId}>{value}</span>;
 							return null;
@@ -146,7 +146,8 @@ const CalendarContainer = styled.div<{ show: boolean }>`
 	}
 
 	.react-calendar__navigation__next2-button,
-	.react-calendar__navigation__prev2-button, abbr {
+	.react-calendar__navigation__prev2-button,
+	abbr {
 		display: none;
 	}
 `;

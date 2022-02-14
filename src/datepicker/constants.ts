@@ -4,7 +4,7 @@ import nextMonday from 'date-fns/nextMonday';
 import { AllPresetDates } from './@types';
 
 const presetDates: AllPresetDates = {
-    keys: ['today', 'yesterday', 'thisMonday', 'lastMonday',],
+	keys: ['today', 'yesterday', 'thisMonday', 'lastMonday'],
 	today: {
 		label: 'Today',
 		value: new Date(),
