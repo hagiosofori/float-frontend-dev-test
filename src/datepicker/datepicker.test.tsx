@@ -24,7 +24,9 @@ describe('App - Datepicker', () => {
 		expect(container.querySelector('.react-calendar')).not.toBeInTheDocument();
 	});
 
-	presetDates.forEach((each) => {
+	presetDates.keys.forEach((presetDateKey) => {
+		const each = presetDates[presetDateKey];
+
 		it(`should select the correct date on the calendar when the ${each.label} preset date is selected`, () => {
 			const { container } = setupApp();
 			screen.getByTestId('input').click();

@@ -3,19 +3,22 @@ import { PresetDatesProps } from './@types';
 
 const PresetDates = ({ date, setDate, options }: PresetDatesProps) => (
 	<>
-		{options.map(({ label, value, activeIcon, inactiveIcon }) => (
-			<PresetDateOption
-				label={label}
-				activeIcon={activeIcon}
-				inactiveIcon={inactiveIcon}
-				onClick={() => {
-					setDate({ value, label });
-				}}
-				value={value}
-				isActive={label === date.label}
-				key={label}
-			/>
-		))}
+		{options.keys.map((key) => {
+			const { label, value, activeIcon, inactiveIcon } = options[key];
+			return (
+				<PresetDateOption
+					label={label}
+					activeIcon={activeIcon}
+					inactiveIcon={inactiveIcon}
+					onClick={() => {
+						setDate({ value, label });
+					}}
+					value={value}
+					isActive={label === date.label}
+					key={label}
+				/>
+			);
+		})}
 
 		<PresetDateOption
 			label="Custom"

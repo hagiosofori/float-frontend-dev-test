@@ -3,7 +3,10 @@ import { DatepickerProps } from '../datepicker/@types';
 import presetDates from '../datepicker/constants';
 
 export default function useCalendar(): DatepickerProps {
-	const [date, setDate] = useState({ label: presetDates[0].label, value: presetDates[0].value });
+	const [date, setDate] = useState({
+		label: presetDates.today.label,
+		value: presetDates.today.value,
+	});
 	const [show, setShow] = useState(false);
 
 	useEffect(() => {
