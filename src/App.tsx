@@ -16,12 +16,14 @@ function App() {
 				</Header>
 
 				<main>
-					<Datepicker
-						show={showDatePicker}
-						setShow={setShow}
-						date={date}
-						setDate={setDate}
-					/>
+					<form>
+						<Datepicker
+							show={showDatePicker}
+							setShow={setShow}
+							date={date}
+							setDate={setDate}
+						/>
+					</form>
 				</main>
 			</Main>
 		</Page>
