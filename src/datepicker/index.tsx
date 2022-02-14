@@ -1,4 +1,4 @@
-import Calendar from 'react-calendar';
+import Calendar, { CalendarTileProperties } from 'react-calendar';
 import { DatepickerProps } from './@types';
 import PresetDates from './PresetDates';
 import styled, { keyframes } from 'styled-components';
@@ -8,16 +8,12 @@ import colors from '../colors';
 import ConditionalRender from '../ConditionalRender';
 
 export default function Datepicker({ date, setDate, show, setShow }: DatepickerProps) {
-	function toggleShowDate(show: boolean) {
-		setShow(!show);
-	}
-
 	return (
 		<>
 			<InputContainer
 				onClick={(e) => {
 					e.stopPropagation();
-					toggleShowDate(show);
+					setShow(!show);
 				}}
 				data-testid="input"
 			>
@@ -87,6 +83,7 @@ const Input = styled.input`
 	outline: none;
 	color: ${colors.text};
 	cursor: pointer;
+	caret-color: transparent;
 `;
 
 const PresetDatesContainer = styled.div`
@@ -149,7 +146,7 @@ const CalendarContainer = styled.div<{ show: boolean }>`
 	}
 
 	.react-calendar__navigation__next2-button,
-	.react-calendar__navigation__prev2-button {
+	.react-calendar__navigation__prev2-button, abbr {
 		display: none;
 	}
 `;
