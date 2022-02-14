@@ -42,6 +42,13 @@ export default function Datepicker({ date, setDate, show, setShow }: DatepickerP
 							const label = determineSelectedDateLabel(value);
 							setDate({ label, value });
 						}}
+						tileContent={(props: CalendarTileProperties) => {
+							const value = format(props.date, 'd');
+                            const testId = format(props.date, 'd MMMM yyyy')
+							if (props.view === 'month')
+								return <span data-testid={testId}>{value}</span>;
+							return null;
+						}}
 						formatShortWeekday={(_, date: Date) => format(date, 'ccccc')}
 					/>
 				</CalendarContainer>

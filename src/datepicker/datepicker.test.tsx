@@ -45,13 +45,12 @@ describe('App - Datepicker', () => {
 		});
 
 		it(`should select the ${each.label} preset date when the correct date is selected`, () => {
-			const { container } = setupApp();
-            const ariaLabel = format(each.value, 'd MMMM yyyy')
-			const dateTile: HTMLElement | null = container.querySelector(
-				`[aria-label="${ariaLabel}"]`
+			setupApp();
+			screen.getByTestId('input').click();
+			const ariaLabel = format(each.value, 'd MMMM yyyy');
+			const dateTile: HTMLElement | null = document.querySelector(
+				`button span[data-testid="${ariaLabel}"]`
 			);
-            const _dateTile = screen.getByText(each.value.getDay())
-            console.log('value of date tile -> ', {dateTile, ariaLabel, _dateTile});
 			dateTile?.click();
 			expect(screen.getByRole('textbox')).toHaveDisplayValue(each.label);
 		});
