@@ -45,6 +45,7 @@ const PresetDateOptionContainer = styled.button<{ isActive: boolean; clickable: 
 
 	&:hover {
 		background: ${(props) => (props.clickable ? colors.presetDateActiveBackground : '')};
+		cursor: ${(props) => (props.clickable ? 'pointer' : 'not-allowed')};
 	}
 
 	img {
