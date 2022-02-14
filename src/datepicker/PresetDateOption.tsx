@@ -1,6 +1,7 @@
 import { PresetDate } from './@types';
 import styled from 'styled-components';
 import colors from '../colors';
+
 const PresetDateOption = ({
 	activeIcon,
 	inactiveIcon,
@@ -15,6 +16,7 @@ const PresetDateOption = ({
 			onClick={onClick}
 			data-testid={label}
 			isActive={isActive}
+			type="button"
 		>
 			<img
 				src={isActive ? activeIcon : inactiveIcon}
