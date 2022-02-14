@@ -36,12 +36,13 @@ const PresetDateOptionContainer = styled.button<{ isActive: boolean; clickable: 
 	padding: 10px 8px;
 	background: ${(props) => (props.isActive ? colors.presetDateActiveBackground : 'transparent')};
 	cursor: pointer;
-	color: ${(props) => (props.isActive ? colors.teal : colors.presetDateActiveText)};
+	color: ${(props) => (props.isActive ? colors.teal : colors.otherMonthsDateText)};
 	font-weight: ${(props) => (props.isActive ? 600 : 400)};
 	border: none;
 	min-width: 141px;
 	border-radius: 6px;
 	align-items: center;
+    font-size: 14px;
 
 	&:hover {
 		background: ${(props) => (props.clickable ? colors.presetDateActiveBackground : '')};
