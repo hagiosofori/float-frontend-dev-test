@@ -5,7 +5,7 @@ import { render, screen } from '@testing-library/react';
 import presetDates from './constants';
 import App from '../App';
 import { determineSelectedDateLabel } from './index';
-import { addDays } from 'date-fns';
+import addDays from 'date-fns/addDays';
 import format from 'date-fns/format';
 
 describe('App - Datepicker', () => {
